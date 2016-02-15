@@ -16,6 +16,7 @@
       <button class="start btn" ng-click="runGame()" ng-show="!gameRunning">Start Game</button>
       <div ng-show="gameRunning">
         <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
+        <p class="lead">{{ levels[currentLevel].description }}</p>
 
         <button class="btn" ng-click="playRound()">Hit</button>
 
