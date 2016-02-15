@@ -14,7 +14,7 @@
   </header>
   <section ng-controller="gameCtrl as game">
     <div class="container gameboard">
-      <button class="start btn" ng-click="runGame()" ng-show="!gameRunning">Start Game</button>
+      <button class="start btn" ng-click="runGame()" ng-show="!gameRunning && !dead">Start Game</button>
       <div ng-show="gameRunning">
         <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
         <p class="lead">{{ levels[currentLevel].description }}</p>
@@ -34,8 +34,14 @@
         <div class="score">
           <p>Your health: {{ playerHealth }}</p>
           <p>Health of {{ levels[currentLevel].name }}: {{ enemyHealth }}</p>
-        </div>
-        
+        </div> 
+      </div>
+
+      <div class="continue-game" ng-show="dead">
+        <h3>You failed to beat the gatekeeper...</h3>
+        <p class="lead">You stop for a moment, but courage rises up and you feel strong again.</p>
+        <label for="continue">Are you ready to try again?</label>
+        <button name="continue" class="btn" ng-click="continue()">YES</button>
       </div>
 
 

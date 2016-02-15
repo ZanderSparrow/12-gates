@@ -18,22 +18,35 @@ var app = angular.module('12app', [])
 
       $scope.playRound = function () {
         $scope.playerHit = Mech.getHit($scope.player.level);
-        $scope.enemyHealth -= $scope.playerHit;
+        $scope.enemyHealth = $scope.enemyHealth - $scope.playerHit >= 0 ? $scope.enemyHealth - $scope.playerHit : 0;
+        if($scope.enemyHealth === 0) {
+          $scope.player.level++;
+          $scope.currentLevel++;
+          $scope.beginLevel();
+          if($scope.currentLevel >= 12) {
+            $scope.gameRunning = false;
+            $scope.currentLevel = 0;
+          }
+        }
         $scope.enemyTurn = false;
         $scope.playerTurn = true;
         $scope.enemyHit = Mech.getHit($scope.levels[$scope.currentLevel].difficulty);
         $timeout(function () { 
           $scope.playerTurn = false;
           $scope.enemyTurn = true;
-          $scope.playerHealth -= $scope.enemyHit;
-        }, 2500);
-
-        // $scope.currentLevel++;
-        // if($scope.currentLevel >= 12) {
-        //   $scope.gameRunning = false;
-        //   $scope.currentLevel = 0;
-        // }
+          $scope.playerHealth = $scope.playerHealth - $scope.enemyHit >= 0 ? $scope.playerHealth - $scope.enemyHit : 0;
+          if($scope.playerHealth === 0) {
+            $scope.dead = true;
+            $scope.gameRunning = false;
+          }
+        }, 1000);
       };
+
+      $scope.continue = function () {
+        $scope.dead = false;
+        $scope.beginLevel();
+        $scope.gameRunning = true;
+      }
 
       $scope.levels = levels;
       $scope.player = player;
