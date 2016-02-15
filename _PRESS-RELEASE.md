@@ -17,13 +17,10 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Twelve Gates ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-
-## A simple, surreal RPG ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > A simple, surreal RPG.
 
 ## Summary ##
-  > The player passes through twelve gates, each guarded by a unique gatekeeper. Once the gatekeeper is defeated, the player is rewarded with increased stats and once reward item.
+  > The player passes through twelve gates, each guarded by a unique gatekeeper. Once the gatekeeper is defeated, the player is rewarded with increased stats and a reward item.
 
 ## Problem ##
   > This game is art and entertainment. It is build quickly, and can be played quickly, but the strange mood will linger in the player's mind.
