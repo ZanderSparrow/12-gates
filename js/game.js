@@ -1,6 +1,6 @@
 
 var app = angular.module('12app', [])
-    .controller('gameCtrl',['$scope', 'Mech', function ($scope, Mech) {
+    .controller('gameCtrl',['$scope', 'Mech', '$timeout', function ($scope, Mech, $timeout) {
       $scope.gameRunning = false;
       $scope.currentLevel = 0;
 
@@ -9,18 +9,21 @@ var app = angular.module('12app', [])
         $scope.gameRunning = true;
       }
 
-      $scope.playLevel = function () {
+      $scope.playRound = function () {
         $scope.playerHit = Mech.getHit($scope.player.level);
-        $scope.currentLevel++;
-        if($scope.currentLevel >= 12) {
-          $scope.gameRunning = false;
-          $scope.currentLevel = 0;
-        }
-      }
+        $scope.enemyTurn = false;
+        $scope.playerTurn = true;
+        $scope.enemyHit = Mech.getHit($scope.levels[$scope.currentLevel].difficulty);
+        $timeout(function () { 
+          $scope.playerTurn = false;
+          $scope.enemyTurn = true;
+        }, 2500);
 
-      $scope.currentHit = 0;
-      $scope.bam = function () {
-        $scope.currentHit = Mech.getHit($scope.player);
+        // $scope.currentLevel++;
+        // if($scope.currentLevel >= 12) {
+        //   $scope.gameRunning = false;
+        //   $scope.currentLevel = 0;
+        // }
       }
 
       $scope.levels = levels;
@@ -30,7 +33,8 @@ var app = angular.module('12app', [])
 
   var player = {
     level: 1,
-    hp: 10
+    hp: 100,
+    message: 'You strike out at the gatekeeper!'
   };
 
   var levels = [

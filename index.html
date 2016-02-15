@@ -14,9 +14,20 @@
   <section ng-controller="gameCtrl as game">
     <div class="container gameboard">
       <button class="start" ng-click="runGame()" ng-show="!gameRunning">Start Game</button>
-      <div ng-click="playLevel()"> {{ levels[currentLevel].name }}</div>
+      <div> {{ levels[currentLevel].name }}</div>
 
-      <button ng-click="bam()">Hit</button>
+      <button ng-click="playRound()">Hit</button>
+
+      <div ng-show="playerTurn">
+        <p>{{ player.message }}</p> 
+        <p>You do {{ playerHit }} damage to {{ levels[currentLevel].name }}</p>
+      </div>
+
+      <div ng-show="enemyTurn">
+        <p>{{ levels[currentLevel].message }}</p> 
+        <p>{{ levels[currentLevel].name }} does {{ enemyHit }} damage to You!</p>
+      </div>
+
 
     </div>
   </section>
