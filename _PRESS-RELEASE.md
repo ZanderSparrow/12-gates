@@ -23,22 +23,22 @@ Once the project moves into development, the press release can be used as a touc
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > The player passes through twelve gates, each guarded by a unique gatekeeper. Once the gatekeeper is defeated, the player is rewarded with increased stats and once reward item.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > This game is art and entertainment. It is build quickly, and can be played quickly, but the strange mood will linger in the player's mind.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > A very simple user interface with only still graphics makes it possible to develope the game quickly.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > This life thing we're doing is pretty interesting, isn't it?
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > To play the game, simply click start.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I can't stop thinking about this game. It's strange, but in a good way." -John H. Doe
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > If you want to play, head over to the [the gh_pages site](http://zandersparrow.github.io/12-gates/ "gh-pages site for 12-gates")
