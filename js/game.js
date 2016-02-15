@@ -7,16 +7,25 @@ var app = angular.module('12app', [])
       $scope.runGame = function () {
         $scope.currentLevel = 0;
         $scope.gameRunning = true;
-      }
+        $scope.playerHealth = $scope.player.level * 100;
+        $scope.enemyHealth = $scope.levels[$scope.currentLevel].difficulty * 100;
+      };
+
+      $scope.beginLevel = function () {
+        $scope.playerHealth = $scope.player.level * 100;
+        $scope.enemyHealth = $scope.levels[$scope.currentLevel].difficulty * 100;
+      };
 
       $scope.playRound = function () {
         $scope.playerHit = Mech.getHit($scope.player.level);
+        $scope.enemyHealth -= $scope.playerHit;
         $scope.enemyTurn = false;
         $scope.playerTurn = true;
         $scope.enemyHit = Mech.getHit($scope.levels[$scope.currentLevel].difficulty);
         $timeout(function () { 
           $scope.playerTurn = false;
           $scope.enemyTurn = true;
+          $scope.playerHealth -= $scope.enemyHit;
         }, 2500);
 
         // $scope.currentLevel++;
@@ -24,7 +33,7 @@ var app = angular.module('12app', [])
         //   $scope.gameRunning = false;
         //   $scope.currentLevel = 0;
         // }
-      }
+      };
 
       $scope.levels = levels;
       $scope.player = player;
@@ -33,7 +42,6 @@ var app = angular.module('12app', [])
 
   var player = {
     level: 1,
-    hp: 100,
     message: 'You strike out at the gatekeeper!'
   };
 

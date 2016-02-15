@@ -13,19 +13,27 @@
   </header>
   <section ng-controller="gameCtrl as game">
     <div class="container gameboard">
-      <button class="start" ng-click="runGame()" ng-show="!gameRunning">Start Game</button>
-      <div> {{ levels[currentLevel].name }}</div>
+      <button class="start btn" ng-click="runGame()" ng-show="!gameRunning">Start Game</button>
+      <div ng-show="gameRunning">
+        <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
 
-      <button ng-click="playRound()">Hit</button>
+        <button class="btn" ng-click="playRound()">Hit</button>
 
-      <div ng-show="playerTurn">
-        <p>{{ player.message }}</p> 
-        <p>You do {{ playerHit }} damage to {{ levels[currentLevel].name }}</p>
-      </div>
+        <div ng-show="playerTurn">
+          <p>{{ player.message }}</p> 
+          <p>You do {{ playerHit }} damage to {{ levels[currentLevel].name }}</p>
+        </div>
 
-      <div ng-show="enemyTurn">
-        <p>{{ levels[currentLevel].message }}</p> 
-        <p>{{ levels[currentLevel].name }} does {{ enemyHit }} damage to You!</p>
+        <div ng-show="enemyTurn">
+          <p>{{ levels[currentLevel].message }}</p> 
+          <p>{{ levels[currentLevel].name }} does {{ enemyHit }} damage to You!</p>
+        </div>
+
+        <div class="score">
+          <p>Your health: {{ playerHealth }}</p>
+          <p>Health of {{ levels[currentLevel].name }}: {{ enemyHealth }}</p>
+        </div>
+        
       </div>
 
 
