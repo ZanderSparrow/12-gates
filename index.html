@@ -2,6 +2,7 @@
 <html ng-app="12app">
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <title>Twelve Gates</title>
 </head>
@@ -18,14 +19,14 @@
         <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
         <p class="lead">{{ levels[currentLevel].description }}</p>
 
-        <button class="btn" ng-click="playRound()">Hit</button>
+        <button class="btn hit-button" ng-click="playRound()">Hit</button>
 
-        <div ng-show="playerTurn">
+        <div class="battle-outcome" ng-show="playerTurn">
           <p>{{ player.message }}</p> 
           <p>You do {{ playerHit }} damage to {{ levels[currentLevel].name }}</p>
         </div>
 
-        <div ng-show="enemyTurn">
+        <div class="battle-outcome" ng-show="enemyTurn">
           <p>{{ levels[currentLevel].message }}</p> 
           <p>{{ levels[currentLevel].name }} does {{ enemyHit }} damage to You!</p>
         </div>

@@ -1,0 +1,12 @@
+.hit-button {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.battle-outcome {
+  float: left;
+}
+
+.score {
+  float: right;
+}
