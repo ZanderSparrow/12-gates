@@ -3,10 +3,17 @@
   angular.module('12app', [])
     .controller('gameCtrl', function($scope) {
       $scope.gameRunning = false;
-      $scope.level = 1;
-      $scope.runGame = function() {
-        $scope.gameRunning = true;
+      $scope.currentLevel = 1;
+      $scope.runGame = function () {
+        $scope.gameRunning = !$scope.gameRunning;
+      }
 
+      $scope.levelUp = function () {
+        $scope.currentLevel++;
+        if($scope.currentLevel >= 12) {
+          $scope.gameRunning = false;
+          $scope.currentLevel = 1;
+        }
       }
       $scope.levels = levels;
     });
