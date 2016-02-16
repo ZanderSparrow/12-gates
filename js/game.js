@@ -1,4 +1,3 @@
-// When the rock's health is 0, go to the final battle
 // After the final battle go to the end screen
 // Create the end screen
 
@@ -6,13 +5,6 @@ var app = angular.module('game.main', [])
     .controller('gameCtrl',['$scope', 'Mech', '$timeout', '$location', function ($scope, Mech, $timeout, $location) {
       $scope.gameRunning = false;
       $scope.currentLevel = 0;
-      // $scope.runGame = function () {
-      //   $scope.ending = false;
-      //   $scope.currentLevel = 0;
-      //   $scope.gameRunning = true;
-      //   $scope.playerHealth = $scope.player.level * 100;
-      //   $scope.enemyHealth = $scope.levels[$scope.currentLevel].difficulty * 100;
-      // };
 
       $scope.beginLevel = function () {
         $scope.playerHealth = $scope.player.level * 100;
@@ -22,7 +14,8 @@ var app = angular.module('game.main', [])
       $scope.playRound = function () {
         $scope.playerTurn = true;
         $scope.enemyTurn = false;
-        $scope.playerHit = Mech.getHit($scope.player.level) * 2;
+        // Player gets a slight advantage
+        $scope.playerHit = Math.round(Mech.getHit($scope.player.level) * 1.2);
         $scope.enemyHealth = $scope.enemyHealth - $scope.playerHit >= 0 ? $scope.enemyHealth - $scope.playerHit : 0;
         if($scope.enemyHealth === 0) {
           if($scope.currentLevel === 10) {
@@ -43,7 +36,7 @@ var app = angular.module('game.main', [])
             $scope.dead = true;
             $scope.gameRunning = false;
           }
-        }, 500);
+        }, 1000);
       };
 
       $scope.continue = function () {
@@ -143,15 +136,3 @@ var app = angular.module('game.main', [])
       img: 'rock.png'
     },
   ];
-
-// app.factory('Mech', function() {
-
-//   var getHit = function (level) {
-//     // calculates how many hp an attack will deduct
-//     return Math.ceil(level * 20 * Math.random()) + level;
-//   };
-
-//   return {
-//     getHit: getHit
-//   } 
-// });

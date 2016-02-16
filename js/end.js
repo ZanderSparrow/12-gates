@@ -1,6 +1,5 @@
 var app = angular.module('game.end', [])
   .controller('endCtrl', ['$scope', 'Mech', '$timeout', '$location', function ($scope, Mech, $timeout, $location) {
-    // link to game mech factory
     $scope.playerHealth = 1200;
 
     $scope.endBattle = function () {
