@@ -1,7 +1,7 @@
 angular.module('game', [
   'game.main',
   'game.end',
-  //'game.mechanics',
+  'game.mechanics',
   'ngRoute',
 ])
 .config(['$routeProvider', function ($routeProvider) {

@@ -144,14 +144,14 @@ var app = angular.module('game.main', [])
     },
   ];
 
-app.factory('Mech', function() {
+// app.factory('Mech', function() {
 
-  var getHit = function (level) {
-    // calculates how many hp an attack will deduct
-    return Math.ceil(level * 20 * Math.random()) + level;
-  };
+//   var getHit = function (level) {
+//     // calculates how many hp an attack will deduct
+//     return Math.ceil(level * 20 * Math.random()) + level;
+//   };
 
-  return {
-    getHit: getHit
-  } 
-});
+//   return {
+//     getHit: getHit
+//   } 
+// });
