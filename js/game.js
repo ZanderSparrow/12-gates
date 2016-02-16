@@ -7,6 +7,7 @@ var app = angular.module('12app', [])
       $scope.currentLevel = 0;
 
       $scope.runGame = function () {
+        $scope.ending = false;
         $scope.currentLevel = 0;
         $scope.gameRunning = true;
         $scope.playerHealth = $scope.player.level * 100;
@@ -24,7 +25,7 @@ var app = angular.module('12app', [])
         $scope.playerHit = Mech.getHit($scope.player.level) * 2;
         $scope.enemyHealth = $scope.enemyHealth - $scope.playerHit >= 0 ? $scope.enemyHealth - $scope.playerHit : 0;
         if($scope.enemyHealth === 0) {
-          if($scope.currentLevel === 11) {
+          if($scope.currentLevel === 10) {
             $scope.endGame();
           } else {
             $scope.player.level++;
@@ -51,10 +52,22 @@ var app = angular.module('12app', [])
       };
 
       $scope.endGame = function () {
-        // Show different stuff
-        // click handler on button just triggers the enemy attack
-        // message that you strike out but do no damage
-        // after loss, go to the final page
+        $scope.gameRunning = false;
+        $scope.ending = true;
+        $scope.playerHealth = $scope.player.level * 100;
+      };
+
+      $scope.endBattle = function () {
+        $scope.playerTurn = true;
+        $timeout(function () {
+          $scope.playerTurn = false;
+          $scope.enemyTurn = true;
+          $scope.playerHealth = $scope.playerHealth - $scope.enemyHit >= 0 ? $scope.playerHealth - $scope.enemyHit : 0;
+          // when health gets to 0 load end screen
+          if($scope.playerHealth === 0) {
+            $scope.runGame();
+          }
+        });
       };
 
       $scope.levels = levels;
@@ -145,12 +158,6 @@ var app = angular.module('12app', [])
       difficulty: 11,
       img: 'rock.png'
     },
-    {
-      name: 'The Last One',
-      description: '',
-      message: '...',
-      difficulty: 12,
-    }
   ];
 
 app.factory('Mech', function() {

@@ -18,9 +18,11 @@
       <div ng-show="gameRunning">
         <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
         <p class="lead">{{ levels[currentLevel].description }}</p>
-        <img ng-src="img/{{ levels[currentLevel].img }}">
+        
 
-        <button class="btn hit-button" ng-click="playRound()" ng-disabled="playerTurn">Hit</button>
+        <button class="hit-button" ng-click="playRound()" ng-disabled="playerTurn">
+          <img ng-src="img/{{ levels[currentLevel].img }}">
+        </button>
 
         <div class="battle-outcome" ng-show="playerTurn">
           <p>{{ player.message }}</p> 
@@ -45,6 +47,12 @@
         <button name="continue" class="btn" ng-click="continue()">YES</button>
       </div>
 
+      <div ng-show="ending" class="ending">
+        <h3>The last one</h3>
+        <p class="lead">All this time you knew that the end wasn't know, but that it was coming...</p>
+        <button ng-click="endBattle()">Hit</button>
+        <p>Your health: {{ playerHealth }}</p>
+      </div>
 
     </div>
   </section>
