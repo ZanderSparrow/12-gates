@@ -1,8 +1,9 @@
 <div class="container gameboard">
-  <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
-  <p class="lead">{{ levels[currentLevel].description }}</p>
+  <header>
+    <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
+    <p class="lead">{{ levels[currentLevel].description }}</p> 
+  </header>
   
-
   <button ng-disabled="playerTurn || levelUp" ng-click="playRound()" class="character btn-link"><img class="character" ng-src="img/{{ levels[currentLevel].img }}"/></button>
 
   <div ng-show="!dead && !levelUp">
