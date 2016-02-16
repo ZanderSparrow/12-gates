@@ -7,12 +7,12 @@
   <button ng-disabled="playerTurn || levelUp" ng-click="playRound()" class="character btn-link"><img class="character" ng-src="img/{{ levels[currentLevel].img }}"/></button>
 
   <div ng-show="!dead && !levelUp">
-    <div class="battle-outcome" ng-show="playerTurn">
+    <div class="battle-outcome" ng-show="playerTurn && battleResult">
       <p>{{ player.message }}</p> 
       <p>You do {{ playerHit }} damage to {{ levels[currentLevel].name }}</p>
     </div>
 
-    <div class="battle-outcome" ng-show="enemyTurn">
+    <div class="battle-outcome" ng-show="enemyTurn && battleResult">
       <p>{{ levels[currentLevel].message }}</p> 
       <p>{{ levels[currentLevel].name }} does {{ enemyHit }} damage to You!</p>
     </div>
