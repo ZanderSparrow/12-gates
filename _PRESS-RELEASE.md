@@ -29,10 +29,10 @@ Once the project moves into development, the press release can be used as a touc
   > A very simple user interface with only still graphics makes it possible to develope the game quickly.
 
 ## Quote from You ##
-  > This life thing we're doing is pretty interesting, isn't it?
+  > Life is so interesting.
 
 ## How to Get Started ##
-  > To play the game, simply click start.
+  > To play the game click ENTER, and to fight click on the gatekeeper.
 
 ## Customer Quote ##
   > "I can't stop thinking about this game. It's strange, but in a good way." -John H. Doe
