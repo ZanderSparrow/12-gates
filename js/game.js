@@ -29,21 +29,27 @@ var app = angular.module('game.main', [])
             $location.path('/end');
 
           } else {
-            $scope.player.level++;
-            $scope.currentLevel++;
-            $scope.beginLevel();
+            $scope.levelUp = true;
+            $timeout(function () {
+              $scope.levelUp = false;
+              $scope.player.level++;
+              $scope.currentLevel++;
+              $scope.beginLevel();
+            }, 2000);
           }
         }
-        $scope.enemyHit = Mech.getHit($scope.levels[$scope.currentLevel].difficulty);
-        $timeout(function () { 
-          $scope.playerTurn = false;
-          $scope.enemyTurn = true;
-          $scope.playerHealth = $scope.playerHealth - $scope.enemyHit >= 0 ? $scope.playerHealth - $scope.enemyHit : 0;
-          if($scope.playerHealth === 0) {
-            $scope.dead = true;
-            $scope.gameRunning = false;
-          }
-        }, 500);
+        if(!$scope.levelUp) {
+          $scope.enemyHit = Mech.getHit($scope.levels[$scope.currentLevel].difficulty);
+          $timeout(function () { 
+            $scope.playerTurn = false;
+            $scope.enemyTurn = true;
+            $scope.playerHealth = $scope.playerHealth - $scope.enemyHit >= 0 ? $scope.playerHealth - $scope.enemyHit : 0;
+            if($scope.playerHealth === 0) {
+              $scope.dead = true;
+              $scope.gameRunning = false;
+            }
+          }, 500);  
+        } 
       };
 
       $scope.continue = function () {

@@ -3,7 +3,7 @@
   <p class="lead">{{ levels[currentLevel].description }}</p>
   
 
-  <img class="character" ng-click="playRound()" ng-disabled="playerTurn" ng-src="img/{{ levels[currentLevel].img }}"/>
+  <img class="character" ng-click="playRound()" ng-disabled="playerTurn || levelUp" ng-src="img/{{ levels[currentLevel].img }}"/>
 
   <div>
     <div class="battle-outcome" ng-show="playerTurn">
@@ -20,6 +20,10 @@
       <p>Your health: {{ playerHealth }}</p>
       <p>Health of {{ levels[currentLevel].name }}: {{ enemyHealth }}</p>
     </div> 
+  </div>
+
+  <div class="levelUp" ng-show="levelUp">
+    <p class="centered"> LEVEL UP!</p>
   </div>
           
 
