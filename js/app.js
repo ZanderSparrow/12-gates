@@ -1,5 +1,6 @@
 angular.module('game', [
   'game.main',
+  'game.end',
   //'game.mechanics',
   'ngRoute',
 ])

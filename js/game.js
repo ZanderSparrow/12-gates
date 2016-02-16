@@ -1,18 +1,18 @@
-// Change the dynamic for the final level
+// When the rock's health is 0, go to the final battle
+// After the final battle go to the end screen
 // Create the end screen
 
 var app = angular.module('game.main', [])
-    .controller('gameCtrl',['$scope', 'Mech', '$timeout', function ($scope, Mech, $timeout) {
+    .controller('gameCtrl',['$scope', 'Mech', '$timeout', '$location', function ($scope, Mech, $timeout, $location) {
       $scope.gameRunning = false;
       $scope.currentLevel = 0;
-
-      $scope.runGame = function () {
-        $scope.ending = false;
-        $scope.currentLevel = 0;
-        $scope.gameRunning = true;
-        $scope.playerHealth = $scope.player.level * 100;
-        $scope.enemyHealth = $scope.levels[$scope.currentLevel].difficulty * 100;
-      };
+      // $scope.runGame = function () {
+      //   $scope.ending = false;
+      //   $scope.currentLevel = 0;
+      //   $scope.gameRunning = true;
+      //   $scope.playerHealth = $scope.player.level * 100;
+      //   $scope.enemyHealth = $scope.levels[$scope.currentLevel].difficulty * 100;
+      // };
 
       $scope.beginLevel = function () {
         $scope.playerHealth = $scope.player.level * 100;
@@ -26,7 +26,8 @@ var app = angular.module('game.main', [])
         $scope.enemyHealth = $scope.enemyHealth - $scope.playerHit >= 0 ? $scope.enemyHealth - $scope.playerHit : 0;
         if($scope.enemyHealth === 0) {
           if($scope.currentLevel === 10) {
-            $scope.endGame();
+            $location.path('/end');
+
           } else {
             $scope.player.level++;
             $scope.currentLevel++;
@@ -51,27 +52,10 @@ var app = angular.module('game.main', [])
         $scope.gameRunning = true;
       };
 
-      $scope.endGame = function () {
-        $scope.gameRunning = false;
-        $scope.ending = true;
-        $scope.playerHealth = $scope.player.level * 100;
-      };
-
-      $scope.endBattle = function () {
-        $scope.playerTurn = true;
-        $timeout(function () {
-          $scope.playerTurn = false;
-          $scope.enemyTurn = true;
-          $scope.playerHealth = $scope.playerHealth - $scope.enemyHit >= 0 ? $scope.playerHealth - $scope.enemyHit : 0;
-          // when health gets to 0 load end screen
-          if($scope.playerHealth === 0) {
-            $scope.runGame();
-          }
-        });
-      };
-
       $scope.levels = levels;
       $scope.player = player;
+      $scope.playerHealth = $scope.player.level * 100;
+      $scope.enemyHealth = $scope.levels[$scope.currentLevel].difficulty * 100;
 
     }]);
 
