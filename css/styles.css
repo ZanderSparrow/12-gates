@@ -10,3 +10,9 @@
 .score {
   float: right;
 }
+
+img {
+  width: 30%;
+  height: 30%;
+  float: left;
+}
