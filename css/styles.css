@@ -1,6 +1,19 @@
-.hit-button {
+body {
+  background: 
+    linear-gradient(
+      rgba(255, 255, 255, 0.4), 
+      rgba(255, 255, 255, 0.4)
+    ),
+    url('../img/bg.png') no-repeat fixed;
+}
+
+.character {
   display: block;
-  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.character:hover {
+  cursor: pointer;
 }
 
 .battle-outcome {

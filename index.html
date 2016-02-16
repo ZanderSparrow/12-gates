@@ -20,9 +20,7 @@
         <p class="lead">{{ levels[currentLevel].description }}</p>
         
 
-        <button class="hit-button" ng-click="playRound()" ng-disabled="playerTurn">
-          <img ng-src="img/{{ levels[currentLevel].img }}">
-        </button>
+        <img class="character" ng-click="playRound()" ng-disabled="playerTurn" ng-src="img/{{ levels[currentLevel].img }}">
 
         <div class="battle-outcome" ng-show="playerTurn">
           <p>{{ player.message }}</p> 
