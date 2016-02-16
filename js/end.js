@@ -14,6 +14,6 @@ var app = angular.module('game.end', [])
         if($scope.playerHealth === 0) {
           // redirect to the epilogue
         }
-      });
+      }, 1500);
     };
   }]);
