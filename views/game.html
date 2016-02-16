@@ -1,0 +1,39 @@
+<div class="container gameboard">
+      <div ng-show="gameRunning">
+        <h3 class="enemy-name" ng-click="beginLevel()"> {{ levels[currentLevel].name }}</h3>
+        <p class="lead">{{ levels[currentLevel].description }}</p>
+        
+
+        <img class="character" ng-click="playRound()" ng-disabled="playerTurn" ng-src="img/{{ levels[currentLevel].img }}">
+
+        <div class="battle-outcome" ng-show="playerTurn">
+          <p>{{ player.message }}</p> 
+          <p>You do {{ playerHit }} damage to {{ levels[currentLevel].name }}</p>
+        </div>
+
+        <div class="battle-outcome" ng-show="enemyTurn">
+          <p>{{ levels[currentLevel].message }}</p> 
+          <p>{{ levels[currentLevel].name }} does {{ enemyHit }} damage to You!</p>
+        </div>
+
+        <div class="score">
+          <p>Your health: {{ playerHealth }}</p>
+          <p>Health of {{ levels[currentLevel].name }}: {{ enemyHealth }}</p>
+        </div> 
+      </div>
+
+      <div class="continue-game" ng-show="dead">
+        <h3>You failed to beat the gatekeeper...</h3>
+        <p class="lead">You stop for a moment, but courage rises up and you feel strong again.</p>
+        <label for="continue">Are you ready to try again?</label>
+        <button name="continue" class="btn" ng-click="continue()">YES</button>
+      </div>
+
+      <div ng-show="ending" class="ending">
+        <h3>The last one</h3>
+        <p class="lead">All this time you knew that the end wasn't know, but that it was coming...</p>
+        <button ng-click="endBattle()">Hit</button>
+        <p>Your health: {{ playerHealth }}</p>
+      </div>
+
+    </div>
