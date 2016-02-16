@@ -3,7 +3,7 @@
   <p class="lead">{{ levels[currentLevel].description }}</p>
   
 
-  <img class="character" ng-click="playRound()" ng-disabled="playerTurn || levelUp" ng-src="img/{{ levels[currentLevel].img }}"/>
+  <button ng-disabled="playerTurn || levelUp" ng-click="playRound()" class="character btn-link"><img class="character" ng-src="img/{{ levels[currentLevel].img }}"/></button>
 
   <div ng-show="!dead">
     <div class="battle-outcome" ng-show="playerTurn">

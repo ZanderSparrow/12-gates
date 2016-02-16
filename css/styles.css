@@ -9,6 +9,10 @@ body {
   font-family: 'Walter Turncoat', sans-serif;
 }
 
+.lead {
+  margin-bottom: 10%;
+}
+
 .battle-outcome, .score {
   font-weight: bold;
   font-size: 1.2em;
@@ -16,7 +20,7 @@ body {
 }
 
 .character {
-  display: block;
+  float: left;
   margin-right: 20px;
 }
 
