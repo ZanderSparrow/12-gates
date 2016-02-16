@@ -5,6 +5,12 @@ body {
       rgba(255, 255, 255, 0.4)
     ),
     url('../img/bg.png') no-repeat fixed;
+
+  font-family: 'Walter Turncoat', sans-serif;
+}
+
+h1 {
+  font-family: 'Walter Turncoat';
 }
 
 .battle-outcome, .score {
