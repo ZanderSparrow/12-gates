@@ -30,6 +30,23 @@ body {
   float: right;
 }
 
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.enter {
+  font-size: 4em;
+  color: #000;
+}
+
+.enter:hover {
+  text-decoration: none;
+}
+
 img {
   height: 300px;
   float: left;
