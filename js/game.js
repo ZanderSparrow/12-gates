@@ -22,9 +22,13 @@ var app = angular.module('game.main', [])
             $location.path('/end');
 
           } else {
-            $scope.player.level++;
-            $scope.currentLevel++;
-            $scope.beginLevel();
+            $scope.levelUp = true;
+            $timeout(function () {
+              $scope.levelUp = false;
+              $scope.player.level++;
+              $scope.currentLevel++;
+              $scope.beginLevel();
+            }, 2000);
           }
         }
         $scope.enemyHit = Mech.getHit($scope.levels[$scope.currentLevel].difficulty);

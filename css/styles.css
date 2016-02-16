@@ -9,10 +9,6 @@ body {
   font-family: 'Walter Turncoat', sans-serif;
 }
 
-h1 {
-  font-family: 'Walter Turncoat';
-}
-
 .battle-outcome, .score {
   font-weight: bold;
   font-size: 1.2em;
@@ -50,6 +46,10 @@ h1 {
 
 .enter:hover {
   text-decoration: none;
+}
+
+.levelUp {
+  font-size: 4em;
 }
 
 img {
