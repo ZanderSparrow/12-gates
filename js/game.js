@@ -1,3 +1,5 @@
+// Change the dynamic for the final level
+// Create the end screen
 
 var app = angular.module('12app', [])
     .controller('gameCtrl',['$scope', 'Mech', '$timeout', function ($scope, Mech, $timeout) {
@@ -17,19 +19,19 @@ var app = angular.module('12app', [])
       };
 
       $scope.playRound = function () {
+        $scope.playerTurn = true;
+        $scope.enemyTurn = false;
         $scope.playerHit = Mech.getHit($scope.player.level) * 2;
         $scope.enemyHealth = $scope.enemyHealth - $scope.playerHit >= 0 ? $scope.enemyHealth - $scope.playerHit : 0;
         if($scope.enemyHealth === 0) {
-          $scope.player.level++;
-          $scope.currentLevel++;
-          $scope.beginLevel();
-          if($scope.currentLevel >= 12) {
-            $scope.gameRunning = false;
-            $scope.currentLevel = 0;
+          if($scope.currentLevel === 11) {
+            $scope.endGame();
+          } else {
+            $scope.player.level++;
+            $scope.currentLevel++;
+            $scope.beginLevel();
           }
         }
-        $scope.enemyTurn = false;
-        $scope.playerTurn = true;
         $scope.enemyHit = Mech.getHit($scope.levels[$scope.currentLevel].difficulty);
         $timeout(function () { 
           $scope.playerTurn = false;
@@ -39,14 +41,21 @@ var app = angular.module('12app', [])
             $scope.dead = true;
             $scope.gameRunning = false;
           }
-        }, 1000);
+        }, 500);
       };
 
       $scope.continue = function () {
         $scope.dead = false;
         $scope.beginLevel();
         $scope.gameRunning = true;
-      }
+      };
+
+      $scope.endGame = function () {
+        // Show different stuff
+        // click handler on button just triggers the enemy attack
+        // message that you strike out but do no damage
+        // after loss, go to the final page
+      };
 
       $scope.levels = levels;
       $scope.player = player;
