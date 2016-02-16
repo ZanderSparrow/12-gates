@@ -1,14 +1,15 @@
 angular.module('game', [
-  'game.mechanics',
+  'game.main',
+  //'game.mechanics',
   'ngRoute',
 ])
-.config(function ($routeProvider) {
+.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'views/start.html',
       controller: 'gameCtrl'
     })
-    .when('/play', {
+    .when('/game', {
       templateUrl: 'views/game.html',
       controller: 'gameCtrl'
     })
@@ -19,4 +20,4 @@ angular.module('game', [
     .otherwise({
       redirectTo: '/'
     });
-});
+}]);

@@ -1,7 +1,7 @@
 // Change the dynamic for the final level
 // Create the end screen
 
-var app = angular.module('12app', [])
+var app = angular.module('game.main', [])
     .controller('gameCtrl',['$scope', 'Mech', '$timeout', function ($scope, Mech, $timeout) {
       $scope.gameRunning = false;
       $scope.currentLevel = 0;
