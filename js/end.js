@@ -11,7 +11,7 @@ angular.module('game.end', [])
         $scope.playerHealth = $scope.playerHealth - $scope.enemyHit >= 0 ? $scope.playerHealth - $scope.enemyHit : 0;
         // when health gets to 0 load end screen
         if($scope.playerHealth === 0) {
-          // redirect to the epilogue
+          $location.path('/space');
         }
       }, 1500);
     };

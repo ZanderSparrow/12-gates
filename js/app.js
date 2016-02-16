@@ -1,6 +1,7 @@
 angular.module('game', [
   'game.main',
   'game.end',
+  'game.space',
   'game.mechanics',
   'ngRoute',
 ])
@@ -17,6 +18,10 @@ angular.module('game', [
     .when('/end', {
       templateUrl: 'views/end.html',
       controller: 'endCtrl',
+    })
+    .when('/space', {
+      templateUrl: 'views/space.html',
+      controller: 'spaceCtrl'
     })
     .otherwise({
       redirectTo: '/'
