@@ -2,6 +2,9 @@
   <h3>The last one</h3>
   <p class="lead">All this time you knew that the end wasn't known, but that it was coming...</p>
   <p class="centered lead" ng-show="playerTurn">You strike out at the invisible one!</p>
-  <button class="btn btn-link centered fight" ng-click="endBattle()" ng-show="!playerTurn">Fight</button>
+  <button class="btn btn-link centered fight" ng-click="endBattle()" ng-show="!playerTurn">
+    <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>Fight
+    <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+  </button>
   <p>Your health: {{ playerHealth }}</p>
 </div>

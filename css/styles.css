@@ -67,6 +67,10 @@ header {
   cursor: pointer;
 }
 
+.glyphicon {
+  padding-right: 0.4em;
+}
+
 img.character {
   height: 300px;
   float: left;
