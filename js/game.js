@@ -15,7 +15,7 @@ angular.module('game.main', [])
       $scope.playerTurn = true;
       $scope.enemyTurn = false;
       // Player gets a slight advantage
-      $scope.playerHit = Math.round(Mech.getHit($scope.player.level) * 1.2);
+      $scope.playerHit = Math.round(Mech.getHit($scope.player.level) * 1.5);
       $scope.enemyHealth = $scope.enemyHealth - $scope.playerHit >= 0 ? $scope.enemyHealth - $scope.playerHit : 0;
       $scope.battleResult = true;
       if($scope.enemyHealth === 0) {

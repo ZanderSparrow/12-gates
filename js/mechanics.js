@@ -3,7 +3,7 @@ angular.module('game.mechanics', [])
 .factory('Mech', ['$http', function ($http) {
   var getHit = function (level) {
     // calculates how many hp an attack will deduct
-    return Math.ceil(level * 30 * Math.random()) + level;
+    return Math.ceil(level * 50 * Math.random()) + level;
   };
 
   var getSpace = function () {

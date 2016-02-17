@@ -1,5 +1,5 @@
 angular.module('game.space', [])
-  .controller('spaceCtrl', ['$scope', 'Mech', function ($scope, Mech) {
+  .controller('spaceCtrl', ['$scope', 'Mech', '$location', function ($scope, Mech, $location) {
     $scope.space = {};
     $scope.spaceKeys = [];
     Mech.getSpace()
@@ -10,4 +10,8 @@ angular.module('game.space', [])
     .catch(function (err) {
       console.error(err);
     });
+
+    $scope.restart = function () {
+      $location.path('/start');
+    };
   }]);
